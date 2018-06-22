@@ -1,0 +1,18 @@
+#mapLink {    
+    color: blue;
+}
+
+#mapLink:hover {
+    text-decoration: underline;
+    color: orange;
+    cursor: pointer;
+}
+
+footer {        
+    background-color: silver;    
+}
+
+#footerText {
+    color: black !important;
+    text-decoration: bold !important;
+}
