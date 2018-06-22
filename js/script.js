@@ -48,13 +48,27 @@ $(document).ready(function() {
               "defaultContent": "<i>Not set</i>" }
         ],
         "initComplete": function( settings, json ) {
-          $('#idNav').width($( document ).width());          
+          $('#idNav').width($( document ).width());        
+          $('#idFooter').width($( document ).width());
         }
     });    
 });
  
 function openMap(longitude, latitude) {
   if (latitude && longitude) {    
+    var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: latitude, lng: longitude},
+    zoom: 12
+    });
+    infoWindow = new google.maps.InfoWindow({map: map});    
     
+    var pos = {
+      lat: Number(latitude),
+      lng: Number(longitude)
+    };    
+    
+    infoWindow.setPosition(pos);
+    infoWindow.setContent('Infraction made here');
+    map.setCenter(pos);
   }
 }
