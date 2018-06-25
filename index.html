@@ -20,6 +20,11 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
 
     <script src="js/script.js"></script>
+
+
+
+
+    <script src="js/searchInfractions.js"></script>                
 </head>
 <body>
     <header>
@@ -59,7 +64,7 @@
             </div>
         </nav>
     </header>
-    </br></br>
+    <br/>
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document" >
@@ -75,8 +80,21 @@
                 </div>
             </div>
         </div>
-    </div>
-    <table id="table_id" class="display" style="width: 100%;">
+    </div>    
+    <strong id="labelIntruction"><label>Click on the map to change the location</label></strong><br/>
+    <div id="searchingMap"></div>
+    <div class="slidecontainer">
+        <strong><label>Search for all the infractions made in a given radius</label></strong><br/>
+        <label id="lblDistance">Distance radius</label><br/>
+        <label>1 km</label>
+        <input type="range" min="1" max="100" value="50" class="slider" id="distanceRange" onchange="updateSlider(this.value)">
+        <label>100 km</label><br/>
+        <input id="btnSearch" type="button" value="Search" class="btn btn-lg btn-outline- btn-outline-secondary" onclick="executeQuery()"/>
+      </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBllW1XdBZ6BDHt49iP8KjmUEp2ME5boAg&callback=initSearchingMap"
+    async defer></script>    
+    
+    <table id="table_id" class="display">
         <thead>
             <tr>
                 <th>Computed Region</br>43wa_7qmu</th>
@@ -96,8 +114,7 @@
             </tr>
         </thead>        
     </table>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBllW1XdBZ6BDHt49iP8KjmUEp2ME5boAg&callback=openMap"
-    async defer></script>
+    <br/>
     <footer class="footer" id="idFooter">
         <div class="container">
             <span id="footerText" class="text-muted">Nelson Rojas Obando</br>Jun, 2018</br>Parallel Devs - Internship Test</span>

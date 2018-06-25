@@ -21,6 +21,17 @@ html, body {
     padding: 0;
 }
 
+#searchingMap {    
+    height: 50%;
+    width: 40%;
+    margin: 0 5% 2.5%;
+    float: left;    
+}
+
+#labelIntruction {
+margin: 0 15%;
+}
+
 .modal-lg {
     max-width: 85% !important;    
 }
@@ -39,4 +50,12 @@ footer {
 #footerText {
     color: black !important;
     text-decoration: bold !important;
+}
+
+.slidecontainer {
+    text-align: center;
+}
+
+#table_id {
+    width: 100%;
 }
