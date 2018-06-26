@@ -1,3 +1,10 @@
+/**
+ * Este archivo es utilizado para trabajar sobre el mapa de openstreetmap.
+ * Implementa funcionalidades de zoom y desplazamiento.
+ * 
+ * Archivo fuente de openstreetmap
+ */
+
 d3.mapzoom = function () {
     var center = [0, 0]
     var scale = 10000

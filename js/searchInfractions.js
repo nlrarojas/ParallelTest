@@ -7,6 +7,7 @@ $(document).ready(function (){
     updateSlider(Number($('#distanceRange').val()));
 });
 
+//Control del mapa de búsquedas de la página principal. 
 function initSearchingMap() {    
     var map = new google.maps.Map(document.getElementById('searchingMap'), {
     center: {lat: latitude, lng: longitude},
@@ -42,25 +43,31 @@ function initSearchingMap() {
     });
 }
 
+//Actualiza el valor del radio cada vez que se mueve el slider de distancia. 
 function updateSlider(slideAmount) {
     radiusMapDistanceValue = Number(slideAmount);
     initSearchingMap();
     $('#lblDistance').text("Distance radius: " + slideAmount + " km");    
 }
 
+//Esta función busca todas las infracciones cometidas en un punto dentro de un radio dado. 
 function executeQuery() {    
+    //Obtiene la distancia máxima dentro de la cual puede estar la infracción
     var distance = (radiusMapDistanceValue * 1000) / 2;
     var JSONResult = [];
     
+    //Obtiene los datos del API. 
     $.getJSON(URI_API, function(data){
         
     }).done(function (data){
+        //Para cada registro valida la distancia dentro del radio. 
         for (var i = 0; i < Object.keys(data).length; i++) {
             var distanceBetweenLocations = getDistance({lat: data[i].latitude, lng: data[i].longitude}, {lat: latitude, lng: longitude});
             if (distanceBetweenLocations < distance) {                
                 JSONResult.push(data[i]);                                
-            }                        
-        }                        
+            }                                    
+        }             
+        //Se añaden los nuevos datos a la tabla.            
         table.clear();
         table.rows.add(JSONResult);
         table.draw();
@@ -71,10 +78,12 @@ function executeQuery() {
     });
 }
 
+//Calculo de la distancia
 var rad = function(x) {
     return x * Math.PI / 180;
 };
   
+//Esta función calcula la distancia entre dos puntos dados. 
 var getDistance = function(p1, p2) {
     var R = 6378137; // Earth’s mean radius in meter    
     var dLat = rad(p2.lat - p1.lat);

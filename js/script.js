@@ -1,6 +1,7 @@
 var URI_API = "http://data.cityofchicago.org/resource/3v4z-xnbf.json";
 var table;
 
+//Se obtienen los datos del API y se despliegan en la datatables. 
 $(document).ready(function() {   
   table = $('#table_id').DataTable({
     "ajax": {
@@ -55,6 +56,7 @@ $(document).ready(function() {
   });    
 });
 
+//Control sobre el mapa del modal con la ubicación para cada uno de los registros de la tabla. 
 function openMap(longitude, latitude) {
   if (latitude && longitude) {    
     var map = new google.maps.Map(document.getElementById('map'), {
