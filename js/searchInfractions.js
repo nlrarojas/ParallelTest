@@ -51,20 +51,21 @@ function updateSlider(slideAmount) {
 function executeQuery() {    
     var distance = (radiusMapDistanceValue * 1000) / 2;
     var JSONResult = [];
-
+    
     $.getJSON(URI_API, function(data){
         
     }).done(function (data){
         for (var i = 0; i < Object.keys(data).length; i++) {
             var distanceBetweenLocations = getDistance({lat: data[i].latitude, lng: data[i].longitude}, {lat: latitude, lng: longitude});
-            if (distanceBetweenLocations < distance) {
-                //console.log(distanceBetweenLocations + " Distance: " + distance);
+            if (distanceBetweenLocations < distance) {                
                 JSONResult.push(data[i]);                                
-            }            
-        }                
+            }                        
+        }                        
         table.clear();
         table.rows.add(JSONResult);
-        table.draw();                        
+        table.draw();
+        $('#resultQuantity').text("Number of results: " + JSONResult.length);
+        window.scrollTo(0,document.body.scrollHeight);
     }).fail(function (data){
 
     });

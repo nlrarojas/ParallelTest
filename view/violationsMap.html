@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Parallel Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"crossorigin="anonymous" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/d3.geo.tile.v0.min.js"></script>
+    
+    <script src="../js/d3.mapzoom.js"></script>    
+
+    <!-- In <head> -->
+    <link href="../css/nouislider.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav id="idNav" class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="../index.html">Parallel Devs - Test</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home                            
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Violations
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">visualization</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <br/>
+    <strong id="labelIntruction">
+        <label>Number of violations by location</label>
+    </strong><br/>
+    <label id="labelIntruction">
+            This map shows the locations in which an infraction has been made.
+        <br/>It is shown by circles which grow depending on the number of infractions.<br/>
+        <br/>Place the mouse over the circle to see the detail
+    </label>
+    <br/><br/>    
+    <div id="divViolationsMap" style="float: left; padding-left: 5%;">            
+    </div>    
+    <script src="../js/renderMap.js"></script>
+    <div class="slidecontainer" style="float: right; padding-right: 5%;">
+        <strong>
+            <label>Display on map the infractions by a given range</label>
+        </strong>
+        <br/>
+        <label id="lblDistance">Range of infractions</label>
+        <br/>
+        <label id="lblMin" style="float: left;">1 infraction</label>
+        <label id="lblMin" style="float: center;">to</label>
+        <label id="lblMax" style="float: right";>100 infractions</label><br/><br/>
+        <div id="slider">
+        </div>            
+        <script src="../js/nouislider.min.js"></script>
+        <script>
+            var slider = document.getElementById('slider');
+    
+            noUiSlider.create(slider, {
+                start: [1, 100],
+                connect: true,
+                step: 1,
+                range: {
+                    'min': 0,
+                    'max': 100
+                }
+            });    
+            slider.noUiSlider.on('update', function () {
+                $('#lblMin').text(Math.round(slider.noUiSlider.get()[0]) == 1 ? Math.round(slider.noUiSlider.get()[0]) + 
+                    " infraction" : Math.round(slider.noUiSlider.get()[0]) + " infractions");
+                $('#lblMax').text(Math.round(slider.noUiSlider.get()[1]) + " infractions");
+            });
+        </script>                    
+        <br/>
+        <input id="btnSearch" type="button" value="Search" class="btn btn-lg btn-outline- btn-outline-secondary" onclick="executeQuery()"/>
+        <br/>            
+    </div>                   
+    <br/>    
+    <footer class="footer" id="idFooter">
+        <div class="container">
+            <span id="footerText" class="text-muted">Nelson Rojas Obando</br>Jun, 2018</br>Parallel Devs - Internship Test</span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,73 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Parallel Test</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css"/>
-        
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css"/>
-  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" />
+
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
 
     <script src="js/script.js"></script>
-
-
-
-
-    <script src="js/searchInfractions.js"></script>                
+    <script src="js/searchInfractions.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
+
 <body>
     <header>
         <nav id="idNav" class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">Parallel Test</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-        
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view/violationsMap.html">Violations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view/violationsMap.html">visualization</a>
+                    </li>
+                </ul>                
             </div>
         </nav>
     </header>
     <br/>
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document" >
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Infraction's location</h5>
@@ -76,24 +66,34 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div id="map"></div><br/>
+                    <div id="map"></div>
+                    <br/>
                 </div>
             </div>
         </div>
-    </div>    
-    <strong id="labelIntruction"><label>Click on the map to change the location</label></strong><br/>
+    </div>
+    <strong id="labelIntruction">
+        <label>Click on the map to change the location</label>
+    </strong>
+    <br/>
     <div id="searchingMap"></div>
     <div class="slidecontainer">
-        <strong><label>Search for all the infractions made in a given radius</label></strong><br/>
-        <label id="lblDistance">Distance radius</label><br/>
+        <strong>
+            <label>Search for all the infractions made in a given radius</label>
+        </strong>
+        <br/>
+        <label id="lblDistance">Distance radius</label>
+        <br/>
         <label>1 km</label>
-        <input type="range" min="1" max="100" value="50" class="slider" id="distanceRange" onchange="updateSlider(this.value)">
-        <label>100 km</label><br/>
+        <input type="range" min="1" max="50" value="25" class="slider" id="distanceRange" onchange="updateSlider(this.value)">
+        <label>50 km</label>
+        <br/>
         <input id="btnSearch" type="button" value="Search" class="btn btn-lg btn-outline- btn-outline-secondary" onclick="executeQuery()"/>
-      </div>
+        <br/><label id="resultQuantity">Number of results 1000</label>
+    </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBllW1XdBZ6BDHt49iP8KjmUEp2ME5boAg&callback=initSearchingMap"
-    async defer></script>    
-    
+        async defer></script>
+
     <table id="table_id" class="display">
         <thead>
             <tr>
@@ -110,9 +110,9 @@
                 <th>Violation Date</th>
                 <th>Violations</th>
                 <th>X Coordinate</th>
-                <th>Y Coordinate</th>                
+                <th>Y Coordinate</th>
             </tr>
-        </thead>        
+        </thead>
     </table>
     <br/>
     <footer class="footer" id="idFooter">
@@ -121,4 +121,5 @@
         </div>
     </footer>
 </body>
+
 </html>

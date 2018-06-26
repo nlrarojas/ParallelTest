@@ -1,0 +1,36 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery UI Slider - Range slider</title>
+	<!-- In <head> -->
+    <link href="css/nouislider.min.css" rel="stylesheet">
+
+    <!-- In <body> -->
+    <script src="js/nouislider.min.js"></script>
+	
+</head>
+<body>
+        <div id="slider">
+            </div>
+            <script>
+                var slider = document.getElementById('slider');
+        
+                noUiSlider.create(slider, {
+                    start: [20, 80],
+                    connect: true,
+                    step: 1,
+                    range: {
+                        'min': 0,
+                        'max': 100
+                    }
+                });
+        
+                slider.noUiSlider.on('update', function () {
+                    console.log(slider.noUiSlider.get()[0] + " " + slider.noUiSlider.get()[1]);
+                });
+            </script>
+</body>
+</html>
