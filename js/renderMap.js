@@ -68,14 +68,13 @@ function executeQuery() {
         
     }).done(function (data){
         data.forEach(element => {
-            if (!isNaN(element.longitude)) {s
+            if (!isNaN(element.longitude)) {
                 if (Number(element.violations) > minNumberOfInfractions && Number(element.violations) < maxNumberOfInfractions) {
                     element.coord = [element.longitude, element.latitude];
                     JSONResult.push(element);                
                 }            
             }
         });
-        console.log(JSONResult.length);
         var circlesInit = svg.append("g").selectAll("circle").data(JSONResult).enter().append("circle")
             .attr("r", function(d) { return (d.violations / maxNumberOfViolations) * 1.5 * (scale/10000); })
             .attr("stroke","black").attr("fill", "red");
